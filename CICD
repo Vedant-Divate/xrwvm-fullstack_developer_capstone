@@ -1,0 +1,16 @@
+$ curl https://api.github.com/repos/Vedant-Divate/car-dealership/actions/runs/37506989240
+
+workflow: CI | status: completed | conclusion: success
+run: https://github.com/Vedant-Divate/car-dealership/actions/runs/37506989240
+
+job: django-checks -> success
+PASS Set up job
+PASS Run actions/checkout@v4
+PASS Run actions/setup-python@v5
+PASS Install dependencies
+PASS Django system check
+PASS Run migrations
+PASS Smoke test API and sentiment analyzer
+PASS Post Run actions/setup-python@v5
+PASS Post Run actions/checkout@v4
+PASS Complete job
