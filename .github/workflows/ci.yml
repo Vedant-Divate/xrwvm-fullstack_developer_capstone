@@ -1,0 +1,35 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  django-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install django
+      - name: Django system check
+        run: cd server && python manage.py check
+      - name: Run migrations
+        run: cd server && python manage.py migrate --run-syncdb
+      - name: Smoke test API and sentiment analyzer
+        run: |-
+          cd server
+          python - <<'EOF'
+          import django, os
+          os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangoproj.settings')
+          django.setup()
+          from django.test import Client
+          from django.contrib.auth.models import User
+          c = Client()
+          assert c.get('/api/dealers/').status_code == 200
+          assert c.get('/api/cars/').status_code == 200
+          r = c.post('/api/analyze/', data='{"text":"Fantastic services"}',
+                     content_type='application/json')
+          assert r.json()['label'] == 'positive', r.content
+          print('smoke test OK')
+          EOF

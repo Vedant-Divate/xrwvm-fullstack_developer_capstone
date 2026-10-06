@@ -1,0 +1,4 @@
+$ python server/manage.py runserver
+Django version 6.1.1, using settings 'djangoproj.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.

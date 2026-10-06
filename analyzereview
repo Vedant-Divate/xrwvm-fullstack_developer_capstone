@@ -1,0 +1,2 @@
+$ curl -X POST -H "Content-Type: application/json" -d {"text":"Fantastic services"} http://localhost:8000/api/analyze/
+{"text": "Fantastic services", "label": "positive", "score": 1.0}

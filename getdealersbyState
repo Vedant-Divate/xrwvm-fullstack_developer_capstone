@@ -1,0 +1,2 @@
+$ curl http://localhost:8000/api/dealers/?state=KS
+[{"id": 1, "name": "Sunflower Auto", "city": "Wichita", "state": "KS", "address": "100 Main St", "zip": "67202", "phone": "+13165550101"}, {"id": 2, "name": "Prairie Motors", "city": "Topeka", "state": "KS", "address": "200 Kansas Ave", "zip": "66603", "phone": "+17855550102"}]

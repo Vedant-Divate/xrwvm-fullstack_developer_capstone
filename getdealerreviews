@@ -1,0 +1,2 @@
+$ curl http://localhost:8000/api/reviews/1/
+[{"id": 1, "dealer_id": 1, "user": "student", "content": "Fantastic services, friendly staff!", "rating": 5, "sentiment": "positive"}]
