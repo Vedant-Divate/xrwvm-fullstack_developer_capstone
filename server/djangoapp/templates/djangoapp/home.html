@@ -28,7 +28,8 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ dealer.name }}</h5>
-            <p>{{ dealer.city }}, {{ dealer.state }}<br />{{ dealer.address }}</p>
+            <p>ID: {{ dealer.id }}<br />
+              {{ dealer.city }}, {{ dealer.state }} {{ dealer.zip_code }}<br />{{ dealer.address }}</p>
             <a class="btn btn-primary btn-sm" href="/dealer/{{ dealer.id }}/">View Dealer</a>
             {% if user.is_authenticated %}
             <a class="btn btn-outline-primary btn-sm" href="/dealer/{{ dealer.id }}/review/">Review Dealer</a>

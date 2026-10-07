@@ -33,11 +33,15 @@ class CarModel(models.Model):
 class Dealer(models.Model):
     """A dealership branch."""
     name = models.CharField(max_length=100)
+    short_name = models.CharField(max_length=50, default='')
+    full_name = models.CharField(max_length=150, default='')
     city = models.CharField(max_length=100, default='')
     state = models.CharField(max_length=2, default='')
     address = models.CharField(max_length=200, default='')
     zip_code = models.CharField(max_length=10, default='')
     phone = models.CharField(max_length=20, default='')
+    lat = models.FloatField(default=0.0)
+    long = models.FloatField(default=0.0)
 
     def __str__(self):
         return f"Dealer: {self.name} ({self.city}, {self.state})"
@@ -50,6 +54,11 @@ class Review(models.Model):
     content = models.CharField(max_length=1000)
     rating = models.IntegerField(default=5)
     sentiment = models.CharField(max_length=20, default='neutral')
+    purchase = models.BooleanField(default=False)
+    purchase_date = models.DateField(null=True, blank=True)
+    car_make = models.CharField(max_length=100, default='')
+    car_model = models.CharField(max_length=100, default='')
+    car_year = models.IntegerField(default=2024)
     created_at = models.DateTimeField(default=now)
 
     def __str__(self):

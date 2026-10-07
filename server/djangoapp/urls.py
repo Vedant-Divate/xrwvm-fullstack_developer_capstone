@@ -23,4 +23,12 @@ urlpatterns = [
     path('api/reviews/<int:dealer_id>/add/', views.api_add_review, name='api_add_review'),
     path('api/cars/', views.api_cars, name='api_cars'),
     path('api/analyze/', views.api_analyze, name='api_analyze'),
+    path('djangoapp/login', views.djangoapp_login, name='djangoapp_login'),
+    path('djangoapp/logout', views.djangoapp_logout, name='djangoapp_logout'),
+    path('djangoapp/get_cars', views.get_cars, name='get_cars'),
+    path('fetchDealers', views.fetch_dealers, name='fetch_dealers'),
+    path('fetchDealers/<str:state>', views.fetch_dealers_by_state, name='fetch_dealers_by_state'),
+    path('fetchDealer/<int:dealer_id>', views.fetch_dealer, name='fetch_dealer'),
+    path('fetchReviews/dealer/<int:dealer_id>', views.fetch_reviews, name='fetch_reviews'),
+    path('analyze/<str:text>', views.analyze_text, name='analyze_text'),
 ]

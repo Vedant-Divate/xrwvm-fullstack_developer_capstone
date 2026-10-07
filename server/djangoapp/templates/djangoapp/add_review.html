@@ -18,6 +18,23 @@
         <textarea id="content" class="form-control" rows="4">Fantastic services, friendly staff!</textarea>
       </div>
       <div class="mb-3">
+        <label class="form-label">Purchase date:</label>
+        <input id="purchase_date" type="date" value="2024-05-10" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Car make:</label>
+        <select id="car_make" class="form-control">
+          <option>Toyota</option>
+          <option>Ford</option>
+          <option>Honda</option>
+          <option>Chevrolet</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Car year:</label>
+        <input id="car_year" type="number" min="1990" max="2025" value="2024" class="form-control" />
+      </div>
+      <div class="mb-3">
         <label class="form-label">Rating (1-5):</label>
         <input id="rating" type="number" min="1" max="5" value="5" class="form-control" />
       </div>
@@ -33,7 +50,11 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           content: document.getElementById('content').value,
-          rating: document.getElementById('rating').value
+          rating: document.getElementById('rating').value,
+          purchase: true,
+          purchase_date: document.getElementById('purchase_date').value,
+          car_make: document.getElementById('car_make').value,
+          car_year: document.getElementById('car_year').value
         })
       });
       const data = await res.json();

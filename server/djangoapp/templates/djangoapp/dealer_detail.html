@@ -23,7 +23,16 @@
     {% for review in reviews %}
     <div class="card my-2">
       <div class="card-body">
-        <p>{{ review.content }}</p>
+        <p>
+          {% if review.sentiment == 'positive' %}
+          <img src="/static/images/positive.svg" alt="positive sentiment" width="36" height="36" />
+          {% elif review.sentiment == 'negative' %}
+          <img src="/static/images/negative.svg" alt="negative sentiment" width="36" height="36" />
+          {% else %}
+          <img src="/static/images/neutral.svg" alt="neutral sentiment" width="36" height="36" />
+          {% endif %}
+          {{ review.content }}
+        </p>
         <p><small>by {{ review.user.username }} | rating {{ review.rating }}/5 |
           sentiment: <strong>{{ review.sentiment }}</strong></small></p>
       </div>

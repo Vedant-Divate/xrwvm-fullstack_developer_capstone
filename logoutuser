@@ -1,2 +1,2 @@
-$ curl -X POST -b cookies.txt http://localhost:8000/api/logout/
-{"message": "Logged out"}
+$ curl -X GET -b cookies.txt http://localhost:8000/djangoapp/logout
+{"userName": ""}

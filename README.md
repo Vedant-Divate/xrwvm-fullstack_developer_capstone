@@ -1,7 +1,7 @@
-# Dealership Capstone – Cars Dealership Full-Stack App
+# fullstack_developer_capstone – Dealership Capstone
 
-Django backend + static pages + React components for the national car
-retailer capstone project.
+Dealership full-stack application for the `fullstack_developer_capstone`
+final project (national car retailer: branches, reviews, sentiment).
 
 - `server/djangoapp/models.py` – CarMake, CarModel, Dealer, Review
 - `server/djangoapp/views.py` – pages, auth APIs, dealer/review/cars/sentiment APIs

@@ -1,2 +1,2 @@
-$ curl -X POST -c cookies.txt -b cookies.txt -H "Content-Type: application/json" -d {"username":"student","password":"student123"} http://localhost:8000/api/login/
-{"message": "Logged in", "username": "student"}
+$ curl -X POST -c cookies.txt -b cookies.txt -H "Content-Type: application/json" -d {"userName":"student","password":"student123"} http://localhost:8000/djangoapp/login
+{"userName": "student", "status": "Authenticated"}
