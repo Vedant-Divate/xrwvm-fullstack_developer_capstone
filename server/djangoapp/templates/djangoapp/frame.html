@@ -5,7 +5,7 @@
 padding:10px 16px;} iframe{width:100%;height:calc(100% - 41px);border:0}</style>
 </head>
 <body>
-<div class="bar">http://localhost:8000{{ path }}</div>
+<div class="bar">https://{{ request.get_host }}{{ path }}</div>
 <iframe src="{{ path }}"></iframe>
 </body>
 </html>
