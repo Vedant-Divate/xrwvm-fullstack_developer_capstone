@@ -77,6 +77,34 @@ def login_page(request):
     return render(request, 'djangoapp/login.html', {'error': error})
 
 
+def signup_page(request):
+    """Sign-up form page creating a Django user."""
+    from django.contrib.auth.models import User as AuthUser
+    error = ''
+    if request.method == 'POST':
+        username = (request.POST.get('username') or '').strip()
+        if not username or not request.POST.get('password'):
+            error = 'Username and password are required'
+        elif AuthUser.objects.filter(username=username).exists():
+            error = 'Username already taken'
+        else:
+            AuthUser.objects.create_user(
+                username=username,
+                password=request.POST.get('password'),
+                first_name=request.POST.get('first_name', ''),
+                last_name=request.POST.get('last_name', ''),
+                email=request.POST.get('email', ''),
+            )
+            return HttpResponseRedirect('/login/')
+    return render(request, 'djangoapp/signup.html', {'error': error})
+
+
+def logout_page(request):
+    """Log out and show a logout alert page."""
+    logout(request)
+    return render(request, 'djangoapp/logged_out.html')
+
+
 def frame_page(request):
     """Local screenshot helper: renders a browser bar around any page."""
     return render(request, 'djangoapp/frame.html', {'path': request.GET.get('u', '/')})

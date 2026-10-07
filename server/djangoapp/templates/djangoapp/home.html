@@ -11,7 +11,7 @@
     <div class="container">
       <a class="navbar-brand" href="/">Best Cars Dealership</a>
       <span class="navbar-text text-white">
-        {% if user.is_authenticated %}Hello, {{ user.username }} | <a class="text-white" href="/api/logout/">Logout</a>{% else %}<a class="text-white" href="/login/">Login</a>{% endif %}
+        {% if user.is_authenticated %}Hello, {{ user.username }} | <a class="text-white" href="/logout/">Logout</a>{% else %}<a class="text-white" href="/login/">Login</a>{% endif %}
       </span>
     </div>
   </nav>
